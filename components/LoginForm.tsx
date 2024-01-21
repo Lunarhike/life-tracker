@@ -16,7 +16,7 @@ export default function LoginForm({
 
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${origin}/auth/v1/callback` },
+      options: { redirectTo: `${origin}/auth/callback` },
     });
 
     if (error) {
