@@ -15,7 +15,7 @@ export default function LoginForm({
     const supabase = createClient(cookieStore);
 
     const { data, error } = await supabase.auth.signInWithOAuth({
-      provider: "github",
+      provider: "google",
       options: { redirectTo: `${origin}/auth/v1/callback` },
     });
 
