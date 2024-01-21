@@ -8,7 +8,7 @@ export default function LoginForm({
 }: {
   searchParams?: { message?: string };
 }) {
-  const google = async (formData: FormData) => {
+  const google = async () => {
     "use server";
 
     const origin = headers().get("origin");
@@ -17,7 +17,7 @@ export default function LoginForm({
 
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${origin}/auth/callback` },
+      options: { redirectTo: `https://${origin}/auth/callback` },
     });
 
     if (error) {
