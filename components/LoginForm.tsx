@@ -16,7 +16,7 @@ export default function LoginForm({
 
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${origin}/auth/callback` },
+      options: { redirectTo: `${origin}/auth/v1/callback` },
     });
 
     if (error) {
@@ -50,7 +50,6 @@ export default function LoginForm({
         <button className="border text-sm bg-surface-100 rounded-md px-4 py-2 text-foreground mb-2 flex items-center justify-center gap-x-2">
           Sign in with Google
         </button>
-
         {searchParams?.message && (
           <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
             {searchParams.message}
