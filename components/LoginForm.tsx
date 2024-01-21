@@ -7,7 +7,7 @@ export default function LoginForm({
 }: {
   searchParams?: { message?: string };
 }) {
-  const google = async (formData: FormData) => {
+  const signUp = async (formData: FormData) => {
     "use server";
 
     const origin = headers().get("origin");
@@ -16,7 +16,7 @@ export default function LoginForm({
 
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${origin}/auth/v1/callback` },
+      options: { redirectTo: `${origin}/auth/callback` },
     });
 
     if (error) {
@@ -31,7 +31,7 @@ export default function LoginForm({
     <div className="flex flex-col justify-center h-full w-full px-8 sm:max-w-sm gap-2 mx-auto">
       <form
         className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
-        action={google}
+        action={signUp}
       >
         <div className="flex items-center gap-x-2 justify-center mb-4">
           <span className="text-foreground-light">Sign in to</span>{" "}
