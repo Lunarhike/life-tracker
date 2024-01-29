@@ -17,7 +17,7 @@ export function DesktopNavbar() {
       <div className="flex items-center justify-center">
         <Link
           href="/"
-          className="mr-12 font-bold text-heading text-lg font-code tracking-tight"
+          className="mr-12 font-thin text-heading text-lg font-code tracking-tight"
         >
           <span className="">{siteConfig.name}</span>
         </Link>

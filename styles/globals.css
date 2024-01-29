@@ -41,7 +41,7 @@
     --foreground: 0 0% 60%;
     --heading: 0 0% 100%;
 
-    --card: 0 0% 18%;
+    --card: 0 0% 10%;
     --card-foreground: 0 0% 98%;
 
     --popover: 240 10% 3.9%;
@@ -66,46 +66,6 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
-}
-
-.hamburger {
-  display: block;
-  width: 30px;
-  height: 20px;
-  position: relative;
-  cursor: pointer;
-}
-
-.hamburger div {
-  width: 30px;
-  height: 4px;
-  background-color: #333;
-  position: absolute;
-  transition: transform 0.3s ease-in-out;
-}
-
-.hamburger .bar-1 {
-  top: 0;
-}
-
-.hamburger .bar-2 {
-  top: 8px;
-}
-
-.hamburger .bar-3 {
-  top: 16px;
-}
-
-.hamburger.open .bar-1 {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.open .bar-2 {
-  opacity: 0;
-}
-
-.hamburger.open .bar-3 {
-  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 @layer base {

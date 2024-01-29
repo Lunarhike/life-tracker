@@ -47,7 +47,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background antialiased font-body",
+          "min-h-screen antialiased font-body",
           inter.variable,
           jetbrains.variable
         )}

@@ -15,42 +15,53 @@ export function MobileNavbar() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <header className="flex md:hidden justify-between h-12 items-center">
-      <div className="flex items-center justify-center">
-        <Button
-          onClick={() => setOpen(!open)}
-          variant="ghost"
-          className="flex flex-col mr-4 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
-        >
-          <div className="flex-col relative justify-center items-center">
+    <div>
+      <header className="flex justify-between items-center md:hidden h-12">
+        <MobileLink href="/" className="" onOpenChange={setOpen}>
+          <span className="font-bold font-code text-heading text-lg tracking-tight">
+            {siteConfig.name}
+          </span>
+        </MobileLink>
+        <div className="flex justify-center items-center space-x-3">
+          <ThemeSwitch />
+          <Button
+            onClick={() => setOpen(!open)}
+            variant="ghost"
+            className={cn(
+              "flex flex-col mr-4 h-8 w-8 items-center justify-center px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden",
+              open && "bg-card"
+            )}
+          >
             <div
               className={cn(
-                "h-0.5 w-5 mb-1.5 bg-foreground rounded-sm transition-all duration-300 ease-out",
-                open ? "translate-y-2 rotate-45" : ""
+                "h-[1px] w-3 mb-[3px] bg-foreground rounded-sm transition-all duration-300 ease-out",
+                open ? "translate-y-[4px] rotate-45" : ""
               )}
             />
             <div
               className={cn(
-                "h-0.5 w-5 mb-1.5 bg-foreground rounded-sm transition-all duration-300 ease-out",
+                "h-[1px] w-3 mb-[3px] bg-foreground rounded-sm transition-all duration-300 ease-out",
                 open ? "opacity-0" : "opacity-100"
               )}
             />
             <div
               className={cn(
-                "h-0.5 w-5 bg-foreground rounded-sm transition-all duration-300 ease-out",
-                open ? "-rotate-45 -translate-y-2" : ""
+                "h-[1px] w-3 bg-foreground rounded-sm transition-all duration-300 ease-out",
+                open ? "-rotate-45 -translate-y-[4px]" : ""
               )}
             />
-          </div>
-        </Button>
+          </Button>
+        </div>
+      </header>
+      <div className="flex items-center justify-center">
         {open ? (
           <nav
             className={cn(
-              "fixed inset-0 z-20 hidden w-full mt-12 md:hidden",
+              "fixed inset-0 z-20 w-full mt-12 bg-background md:hidden border-t container py-6",
               open && "block"
             )}
           >
-            <ScrollArea className="container py-6">
+            <ScrollArea className="">
               <div className="flex flex-col space-y-3">
                 {navbarConfig.main?.map(
                   (item) =>
@@ -69,8 +80,7 @@ export function MobileNavbar() {
           </nav>
         ) : null}
       </div>
-      <ThemeSwitch />
-    </header>
+    </div>
   );
 }
 
